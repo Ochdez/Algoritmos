@@ -1,39 +1,49 @@
-def mezcla(x,ini,mitad,fin):
-	izr = mitad-ini+1
-	der = fin-mitad
+def mezcla(A,x,ini,mitad,fin):
+	
 	i=ini
 	j=mitad
-	A=[]
+	#A=[]
 	k=0
 
 	while i < mitad and j < fin:
 		if x[i]<=x[j]:
-			A[k]=x[j]
+			A.append(x[i])
 			i+=1
 		else:
-			A[k]=x[j]
+			A.append(x[j])
 			j+=1
-		k+=1
+		#k+=1
 
-	while i < izq:
+	while i < mitad:
+		A.append(x[i])
+		i+=1
+		#k+=1
+
+	while j < fin:
+		A.append(x[j])
+		j+=1
+		#k+=1
+
+	return A
 
 
-
-def mergeSort(x,ini,fin):
+def mergeSort(A,x,ini,fin):
 
 	if ini < fin:
 		mitad = (ini+fin) / 2
-		mergeSort(x,ini,mitad-1)
-		mergeSort(x,mitad,fin)
-		mezcla(x,ini,mitad,fin)
-
+		mergeSort(A,x,ini,mitad)
+		mergeSort(A,x,mitad+1,fin)
+		mezcla(A,x,ini,mitad,fin)
 
 x=[]
+A=[] #Arreglo temporal
 n = int(input())
 
 for i in range(0,n):
 	e=int(input())
 	x.append(e)
 
-def mergeSort(x,0,n-1)
-
+mergeSort(A,x,0,n-1)
+print("")
+for i in range(n): 
+    print (A[i])
