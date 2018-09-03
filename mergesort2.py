@@ -1,6 +1,7 @@
 def mezcla(izquierda,derecha):
 	
-	i, j = 0, 0
+	i = 0
+	j = 0
 	A=[]
 
 	while i < len(izquierda) and j < len(derecha):
