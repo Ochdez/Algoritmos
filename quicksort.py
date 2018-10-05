@@ -74,8 +74,8 @@ def mergeSort(x):
 	m = n//3
 	
 	if len(x)==2:
-		h = [0] #cuando se tenga al final una lista de 2 elementos
-		resultado = mezcla(x[:1],x[1:2],h)
+		h = [0] #cuando se tenga una lista de 2 elementos
+		resultado = mezcla(x[:1],x[1:2],h) #la tercera partición será una lista con el elemento "0"
 		
 	else:
 		L1 = mergeSort(x[:m])
@@ -94,8 +94,8 @@ f = x.count(0)
 a = mergeSort(x)
 p = a.count(0)
 
-for i in range(p-f):
-	a.remove(0)
+for i in range(p-f): #Elimina los cero adicionales.
+	a.remove(0) 
 
 b=[]
 for i in a:
