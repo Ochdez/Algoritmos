@@ -29,7 +29,8 @@ public class grafo {
             colaDePrioridad[i] = new caja(i, inf);
         }
 
-        //ArrayList<> ruta = new ArrayList<>();
+        //ArrayList<> ruta = new ArrayList<>();  Busco crear un arrayList para almacenar el cmaino he irlo acrualizando sin
+        //ncesidad de definir su dimención.
        
 
         while(colaDePrioridad[numVertices-1].getVertice() != numVertices){ //Revisa si no esta "vacía" la cola de prioridad
