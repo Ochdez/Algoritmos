@@ -1,4 +1,4 @@
-package Tarea;
+
 public class grafo {
     public int[][] adjM;
     public int numVertices;
@@ -27,26 +27,23 @@ public class grafo {
         caja[] colaDePrioridad = new caja[numVertices];
         for(int i=0; i<numVertices; i++){
             colaDePrioridad[i] = new caja(i, inf);
-            //colaDePrioridad[i].setVertice(i);
-            //colaDePrioridad[i].setPeso(inf);
         }
 
-        int[][] camino = new int[numVertices][2];
+        //ArrayList<> ruta = new ArrayList<>();
+       
 
         while(colaDePrioridad[numVertices-1].getVertice() != numVertices){ //Revisa si no esta "vacía" la cola de prioridad
 
             for(int i=0; i < numVertices; i++){ //Visita a los vecinos de actual
 
-                if(adjM[actual][i] != 0){
+                if(adjM[actual][i] != 0){ //evaluara solo los que tengan conección
 
-                    for(int j=0; j<numVertices; j++){ //Revisa si el vecino está en la cola de prioridad.
-                        if(i == colaDePrioridad[j].getVertice()){
+                    for(int j=0; j < numVertices; j++){ 
+                        if(i == colaDePrioridad[j].getVertice()){//Revisa si el vecino está en la cola de prioridad.
 
-                            if(colaDePrioridad[j].getPeso() > adjM[actual][i] + t){ //Compara los pesos.
-                                colaDePrioridad[j].setPeso(adjM[actual][i] + t); //Cambia el valor del peso al mas pequeño.
-                                camino[k][0] = i;
-                                camino[k][1] = actual;
-                                k++;
+                            if(colaDePrioridad[j].getPeso() > (getEnlace(actual,i) + t)){ //Compara los pesos.
+                                colaDePrioridad[j].setPeso(getEnlace(actual,i) + t); //Cambia el valor del peso al mas pequeño.
+                                
                             }else{
                                 continue;
                             }
